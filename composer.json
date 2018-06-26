@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "philiplb\\": "."
+            "philiplb\\CRUDlexSymfony4Bundle\\": "."
         }
     },
     "minimum-stability": "dev",
