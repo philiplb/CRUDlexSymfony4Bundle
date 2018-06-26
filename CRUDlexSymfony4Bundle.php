@@ -12,7 +12,6 @@ class CRUDlexSymfony4Bundle extends Bundle
      */
     protected function setupTemplates()
     {
-        var_dump(__DIR__.'/../CRUDlex/src/views/'); exit(1);
         $this->container->get('twig')->getLoader()->addPath(__DIR__.'/../CRUDlex/src/views/', 'crud');
     }
 

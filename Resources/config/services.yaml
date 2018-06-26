@@ -49,3 +49,9 @@ services:
           - "@crudlex.service"
           - "@session"
           - "@translator"
+    crudlex.twigExtensions:
+        class: "philiplb\\CRUDlexSymfony4Bundle\\Twig\\CRUDlexExtension"
+        tags: ["twig.extension"]
+        arguments:
+          - "@request_stack"
+          - "@session"
