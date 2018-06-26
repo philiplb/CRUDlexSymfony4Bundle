@@ -1,0 +1,51 @@
+services:
+    crudlex.dataFactoryInterface:
+        public: true
+        class: "CRUDlex\\MySQLDataFactory"
+        arguments:
+          - "@doctrine.dbal.default_connection"
+    crudlex.entityDefinitionFactoryInterface:
+        public: true
+        class: "CRUDlex\\EntityDefinitionFactory"
+    crudlex.fileSystemAdapter:
+        public: true
+        class: "League\\Flysystem\\Adapter\\Local"
+        arguments:
+          - "%kernel.project_dir%/var"
+    crudlex.fileSystem:
+        public: true
+        class: "League\\Flysystem\\Filesystem"
+        arguments:
+          - "@crudlex.fileSystemAdapter"
+    crudlex.entityDefinitionValidatorInterface:
+        public: true
+        class: "CRUDlex\\EntityDefinitionValidator"
+    crudlex.service:
+        public: true
+        class: "CRUDlex\\Service"
+        arguments:
+          - "%kernel.project_dir%/config/packages/crud.yml"
+          - "%kernel.cache_dir%"
+          - "@Symfony\\Component\\Routing\\Generator\\UrlGeneratorInterface"
+          - "@translator"
+          - "@crudlex.dataFactoryInterface"
+          - "@crudlex.entityDefinitionFactoryInterface"
+          - "@crudlex.fileSystem"
+          - "@crudlex.entityDefinitionValidatorInterface"
+    CRUDlex\Controller:
+        public: true
+        class: "CRUDlex\\Controller"
+        arguments:
+          - "@crudlex.service"
+          - "@crudlex.fileSystem"
+          - "@twig"
+          - "@session"
+          - "@translator"
+    kernel.listener.crudlex:
+        class: philiplb\CRUDlexSymfony4Bundle\EventListener\RequestListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments:
+          - "@crudlex.service"
+          - "@session"
+          - "@translator"

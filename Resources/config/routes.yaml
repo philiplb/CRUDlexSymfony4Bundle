@@ -1,0 +1,36 @@
+crudStatic:
+  path: /resource/static
+  controller: CRUDlex\Controller::staticFile
+  methods: [GET]
+crudCreate:
+  path: /{entity}/create
+  controller: CRUDlex\Controller::create
+  methods: [GET, POST]
+crudList:
+  path: /{entity}
+  controller: CRUDlex\Controller::showList
+  methods: [GET]
+crudShow:
+  path: /{entity}/{id}
+  controller: CRUDlex\Controller::show
+  methods: [GET]
+crudEdit:
+  path: /{entity}/{id}/edit
+  controller: CRUDlex\Controller::edit
+  methods: [GET, POST]
+crudDelete:
+  path: /{entity}/{id}/delete
+  controller: CRUDlex\Controller::delete
+  methods: [POST]
+crudRenderFile:
+  path: /{entity}/{id}/{field}/file
+  controller: CRUDlex\Controller::renderFile
+  methods: [GET]
+crudDeleteFile:
+  path: /{entity}/{id}/{field}/delete
+  controller: CRUDlex\Controller::deleteFile
+  methods: [POST]
+crudSetLocale:
+  path: /setting/locale/{locale}
+  controller: CRUDlex\Controller::setLocale
+  methods: [GET]
