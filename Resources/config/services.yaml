@@ -24,7 +24,7 @@ services:
         public: true
         class: "CRUDlex\\Service"
         arguments:
-          - "%kernel.project_dir%/config/packages/crud.yml"
+          - "%kernel.project_dir%/config/crud.yml"
           - "%kernel.cache_dir%"
           - "@Symfony\\Component\\Routing\\Generator\\UrlGeneratorInterface"
           - "@translator"
