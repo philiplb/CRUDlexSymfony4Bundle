@@ -28,6 +28,26 @@ This command requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
+#### Step 2: Add some Repositories to your composer.json
+
+At the moment, two dependencies of CRUDlex needs a fork. Here is how to add the needed repositories to your
+`composer.json`:
+
+```javascript
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/philiplb/sphpdox"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ptlis/MetaYaml"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+```
+
 #### Step 2: Enable the Bundle
 
 Add the bundle to your `config/bundles.php`:
