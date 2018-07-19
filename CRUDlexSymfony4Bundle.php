@@ -23,7 +23,7 @@ class CRUDlexSymfony4Bundle extends Bundle
      */
     protected function setupTemplates()
     {
-        $this->container->get('twig')->getLoader()->addPath(__DIR__.'/../CRUDlex/src/views/', 'crud');
+        $this->container->get('twig')->getLoader()->addPath(__DIR__.'/../crudlex/src/views/', 'crud');
     }
 
     /**
@@ -33,7 +33,7 @@ class CRUDlexSymfony4Bundle extends Bundle
     {
         $translator = $this->container->get('translator');
         $locales   = Service::getLocales();
-        $localeDir = __DIR__.'/../CRUDlex/src/locales';
+        $localeDir = __DIR__.'/../crudlex/src/locales';
         $translator->addLoader('yaml', new YamlFileLoader());
         foreach ($locales as $locale) {
             $translator->addResource('yaml', $localeDir.'/'.$locale.'.yml', $locale);
