@@ -1,7 +1,7 @@
 CRUDlexSymfony4Bundle
 =====================
 
-This bundle provides the integration of CRUDlex in a symfony 4 project.
+This bundle provides the integration of [CRUDlex](https://github.com/philiplb/CRUDlex) in a symfony 4 project.
 
 ## Installation
 
