@@ -18,19 +18,43 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+/**
+ * Class CRUDlexExtension, registers the CRUDlex Twig extensions.
+ * @package philiplb\CRUDlexSymfony4Bundle\Twig
+ */
 class CRUDlexExtension extends AbstractExtension
 {
 
+    /**
+     * Hold the current request stack.
+     * @var RequestStack
+     */
     protected $requestStack;
 
+    /**
+     * Holds the current session instance.
+     * @var SessionInterface
+     */
     protected $session;
 
+    /**
+     * CRUDlexExtension constructor.
+     *
+     * @param RequestStack $requestStack
+     * the current request stack
+     *
+     * @param SessionInterface $session
+     * the current session instance
+     */
     public function __construct(RequestStack $requestStack, SessionInterface $session)
     {
         $this->requestStack = $requestStack;
         $this->session = $session;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFilters()
     {
         $twigExtensions = new TwigExtensions();
@@ -44,6 +68,9 @@ class CRUDlexExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFunctions()
     {
         $requestStack = $this->requestStack;

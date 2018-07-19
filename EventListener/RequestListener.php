@@ -16,15 +16,42 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Translation\TranslatorInterface;
 
+/**
+ * Class RequestListener to listen to kernel request events and managing i18n there.
+ * @package philiplb\CRUDlexSymfony4Bundle\EventListener
+ */
 class RequestListener
 {
 
+    /**
+     * The CRUDlex service instance.
+     * @var Service
+     */
     private $service;
 
+    /**
+     * The session instance.
+     * @var SessionInterface
+     */
     private $session;
 
+    /**
+     * The translator instance.
+     * @var TranslatorInterface
+     */
     private $translator;
 
+    /**
+     * RequestListener constructor.
+     *
+     * @param Service $service
+     * the CRUDlex service instance
+     *
+     * @param SessionInterface $session
+     * the session instance
+     * @param TranslatorInterface $translator
+     * the translator instance
+     */
     public function __construct(Service $service, SessionInterface $session, TranslatorInterface $translator)
     {
         $this->service = $service;
@@ -32,6 +59,9 @@ class RequestListener
         $this->translator = $translator;
     }
 
+    /**
+     * To be executed on kernel requests.
+     */
     public function onKernelRequest()
     {
         $manageI18n = $this->service->isManageI18n();

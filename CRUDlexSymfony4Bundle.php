@@ -15,6 +15,10 @@ use CRUDlex\Service;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
+/**
+ * Class CRUDlexSymfony4Bundle, the bundle defining class.
+ * @package philiplb\CRUDlexSymfony4Bundle
+ */
 class CRUDlexSymfony4Bundle extends Bundle
 {
 
