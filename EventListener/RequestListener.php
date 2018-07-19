@@ -32,7 +32,7 @@ class RequestListener
         $this->translator = $translator;
     }
 
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest()
     {
         $manageI18n = $this->service->isManageI18n();
         if ($manageI18n) {
