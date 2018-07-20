@@ -68,6 +68,10 @@ class RequestListener
         if ($manageI18n) {
             $locale = $this->session->get('locale', 'en');;
             $this->service->setLocale($locale);
+            // in some circumstances, symfony4 doesn't like "en" as locale
+            if ($locale == 'en') {
+                $locale = 'en_GB';
+            }
             $this->translator->setLocale($locale);
         }
 
