@@ -30,15 +30,11 @@ of the Composer documentation.
 
 #### Step 2: Add some Repositories to your composer.json
 
-At the moment, two dependencies of CRUDlex needs a fork. Here is how to add the needed repositories to your
+At the moment, one dependency of CRUDlex needs a fork. Here is how to add the needed repositories to your
 `composer.json`:
 
 ```javascript
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/philiplb/sphpdox"
-        },
         {
             "type": "vcs",
             "url": "https://github.com/ptlis/MetaYaml"

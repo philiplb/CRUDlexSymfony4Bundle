@@ -8,10 +8,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/philiplb/sphpdox"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/ptlis/MetaYaml"
         }
     ],
