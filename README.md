@@ -28,6 +28,13 @@ This command requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
+Be aware that unfortunately one depedency requires the composer.json to accept unstable releases:
+
+```json
+"minimum-stability": "dev",
+"prefer-stable": true,
+```
+
 #### Step 2: Enable the Bundle
 
 Add the bundle to your `config/bundles.php`:
